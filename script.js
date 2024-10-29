@@ -1,8 +1,14 @@
+//API.KEY/"3401546730a9c71d13ecc5c87c3ea8b9";
+//API.KEY"a139e4c2efb9609c9514fe04f9555b";
+//"https://api.openweathermap.org/data/2.5/weather?q=hyderabad&appid=";
+//"https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid=";
+//https://maps.google.com/maps?q=hyderabad&t=&z=13&ie=UTF8&iwloc=&output=embed";
+
 
 
 function searchCity(){
     let city=document.getElementById("city").value;
-    let url='(url-api-key)';
+    let url=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=3401546730a9c71d13ecc5c87c3ea8b9`;
 
     fetch(url).then(function(res){
         return res.json();
@@ -23,14 +29,14 @@ function append(data){
     console.log(data);
    if(data.cod=="404" || data.cod=="400"){
     showdata.innerHTML=null;
-    gmap.src="https://c.tenor.com/IHdlTRsmcS4AAAAM/404.gif";
+    gmap.src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxifuRnw5XUQVLCNYuadKYLLG0pUG8roX80A&s";
     gmap.append(img);
    }
    else{
   
     gmap.src=null;
     showdata.innerHTML=null;
-    let link=`(url-map-key)`;
+    let link=`https://maps.google.com/maps?q=${data.name}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
     showdata.style.backgroundColor="rgba(186, 182, 182, 0.118)";
 
     let city=document.createElement("h1");
@@ -87,7 +93,6 @@ function append(data){
     div7.append(img7,sunset);
 
     gmap.src=link;
-
 
 showdata.append(city,div1,div2,div3,div4,div5,div6,div7);
 
